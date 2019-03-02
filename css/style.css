@@ -1,0 +1,19 @@
+body {
+  box-sizing: border-box;
+}
+
+header {
+  background: #fff;
+  height: 100px;;
+    
+}
+
+header {
+  width: 901px;
+  /* outline: dotted 1px red; */
+  margin: 0 auto;
+}
+
+.clearfix {
+  clear: both;
+}
