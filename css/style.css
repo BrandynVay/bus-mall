@@ -1,19 +1,24 @@
-body {
-  box-sizing: border-box;
+* {
+  color: black;
+  font-family: ;
 }
 
-header {
-  background: #fff;
-  height: 100px;;
-    
+h1, p{
+  text-align: center;
 }
 
-header {
-  width: 901px;
-  /* outline: dotted 1px red; */
-  margin: 0 auto;
+#images{
+  float: right;
 }
 
-.clearfix {
-  clear: both;
+#tally{
+  float: left;
+}
+
+img {
+  width: 200px;
+  display: inline-block;
+  margin-top: 0%;
+  margin-left: -83%;
+  margin-right: auto;
 }
