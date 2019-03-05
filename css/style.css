@@ -1,6 +1,9 @@
-* {
+h1 {
   color: black;
-  font-family: ;
+  margin-bottom: 20px;
+  margin-top: 15px;
+  font-family: 'Playfair Display', serif;
+  font-size: 300%;
 }
 
 h1, p{
@@ -21,4 +24,8 @@ img {
   margin-top: 30px;
   margin-left: 150px;
   margin-right: 150px;
+}
+
+li {
+  margin-top: 15px
 }

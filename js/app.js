@@ -106,7 +106,7 @@ function handleClick(event) {
 function clicks() {
   for(var i = 0; i < allImages.length; i++) {
     var liEl = document.createElement('li');
-    liEl.textContent = `${allImages[i].name} has ${allImages[i].votes} votes and ${allImages[i].views} views`;
+    liEl.textContent = `${allImages[i].name}: ${allImages[i].votes} votes, ${allImages[i].views} views.`;
     numberOfClicks.appendChild(liEl);
   }
 }
