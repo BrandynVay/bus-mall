@@ -17,9 +17,9 @@ var images = [
   'sweep',
   'tauntaun',
   'unicorn',
-  'usb',
   'water-can',
-  'wine-glass'];
+  'wine-glass',
+  'usb',];
 
 var allImages = [];
 var busMall = document.getElementById('images');
@@ -28,16 +28,35 @@ var pics = [document.getElementById('left'), document.getElementById('center'), 
 var numberOfClicks = document.getElementById('number-of-clicks');
 var totalClicks = 0;
 
-function BusMall(name) {
+function BusMall(name, ext) {
   this.name = name;
-  this.path = `img/${name}.jpg`;
+  this.path = `img/${name}.${ext}`;
+  this.ext = ext;
   this.votes = 0;
   this.views = 0;
   allImages.push(this);
 }
-for(var i = 0; i < images.length; i++) {
-  new BusMall(images[i]);
-}
+
+new BusMall('bag', 'jpg');
+new BusMall('banana', 'jpg');
+new BusMall('bathroom', 'jpg');
+new BusMall('boots', 'jpg');
+new BusMall('breakfast', 'jpg');
+new BusMall('bubblegum', 'jpg');
+new BusMall('chair', 'jpg');
+new BusMall('cthulhu', 'jpg');
+new BusMall('dog-duck', 'jpg');
+new BusMall('dragon', 'jpg');
+new BusMall('pen', 'jpg');
+new BusMall('pet-sweep', 'jpg');
+new BusMall('scissors', 'jpg');
+new BusMall('shark', 'jpg');
+new BusMall('sweep', 'jpg');
+new BusMall('tauntaun', 'jpg');
+new BusMall('unicorn', 'jpg');
+new BusMall('water-can', 'jpg');
+new BusMall('wine-glass', 'jpg');
+new BusMall('usb', 'gif');
 
 function randomImage() {
   return Math.floor(Math.random() * images.length);
@@ -68,6 +87,7 @@ function displayImages() {
 function handleClick(event) {
   console.log(totalClicks, 'total clicks');
   if(totalClicks >= 24) {
+    busMall.removeEventListener('click', handleClick);
     clicks();
   }
   if (event.target.id === 'images') {
@@ -86,7 +106,7 @@ function handleClick(event) {
 function clicks() {
   for(var i = 0; i < allImages.length; i++) {
     var liEl = document.createElement('li');
-    liEl.textContent = `${allImages[i].name} has ${allImages[i].votes} votes and ${allImages[i].views} views`;
+    liEl.textContent = `${allImages[i].name}: ${allImages[i].votes} votes, ${allImages[i].views} views.`;
     numberOfClicks.appendChild(liEl);
   }
 }
