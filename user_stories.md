@@ -1,4 +1,4 @@
-##Developer
+## Developer
 
 * Images displayed side by side
 * Images are randomly placed in the three spots
@@ -6,7 +6,7 @@
 * Make sure no 2 images come up at the same time.
 * Make sure the gif image is still working, even tho most of the images are jpg.
 
-##Marketing Research
+## Marketing Research
 
 * We want to know what products to put in our catalog
 * We want to know what items people want to see in the catalog so we need a way to ask them what they want to buy.
