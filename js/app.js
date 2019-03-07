@@ -26,6 +26,8 @@ var busMall = document.getElementById('images');
 var viewedImage = [];
 var pics = [document.getElementById('left'), document.getElementById('center'), document.getElementById('right')];
 var numberOfClicks = document.getElementById('number-of-clicks');
+var votes = [];
+var views = [];
 var totalClicks = 0;
 
 function BusMall(name, ext) {
@@ -97,7 +99,7 @@ function handleClick(event) {
   for(var i = 0; i < images.length; i++) {
     if(event.target.id === allImages[i].name) {
       allImages[i].votes += 1;
-      console.log(`${event.target.id} has ${allImages[i].votes} votes and ${allImages[i].views} views`);
+      console.log(`${event.target.id}: ${allImages[i].votes} votes, ${allImages[i].views} views.`);
     }
   }
   displayImages();
@@ -109,7 +111,87 @@ function clicks() {
     liEl.textContent = `${allImages[i].name}: ${allImages[i].votes} votes, ${allImages[i].views} views.`;
     numberOfClicks.appendChild(liEl);
   }
+  createChart();
 }
 
 busMall.addEventListener('click', handleClick);
 displayImages();
+
+function createChart() {
+  for(var i = 0; i < images.length; i++) {
+    votes.push(allImages[i].votes);
+  }
+
+  var imageNumbers = [
+    'Blue',
+    'Green',
+    'yellow',
+    'Orange',
+    'Red',
+    'Black',
+    'Blue',
+    'Green',
+    'Yellow',
+    'Orange',
+    'Red',
+    'Black',
+    'Blue',
+    'Green',
+    'Yellow',
+    'Orange',
+    'Red',
+    'Black',
+    'Blue',
+    'Green',
+    'Yellow',
+    'Orange',
+    'Red',
+    'Black',
+  ];
+
+  var ctx = document.getElementById('myChart').getContext('2d');
+  ctx.canvas.width = 400;
+  ctx.canvas.height = 350;
+
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: images,
+      datasets: [{
+        label: 'Number of Votes',
+        data: votes,
+        borderWidth: 2,
+        backgroundColor: imageNumbers,
+        borderColor: 'rgba(6, 167, 125, 1)',
+        pointBackgroundColor: 'rgba(225, 225, 225, 1)',
+        pointBorderColor: 'rgba(6, 167, 125, 1)',
+        pointHoverBackgroundColor: 'rgba(6, 167, 125, 1)',
+        pointHoverBorderColor: '#fff'
+      }, {
+        label: 'Number of Views',
+        data: views,
+        borderWidth: 2,
+        backgroundColor: imageNumbers,
+        borderColor: 'rgba(6, 167, 125, 1)',
+        pointBackgroundColor: 'rgba(225, 225, 225, 1)',
+        pointBorderColor: 'rgba(6, 167, 125, 1)',
+        pointHoverBackgroundColor: 'rgba(6, 167, 125, 1)',
+        pointHoverBorderColor: '#fff'
+      }]
+    },
+    options: {
+      legend: {
+        labels: {
+          fontColor: 'darkcyan',
+          fontSize: 18
+        }
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+          }
+        }]
+      }
+    }
+  });
+}
