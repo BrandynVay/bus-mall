@@ -188,3 +188,16 @@ function createChart() {
     }
   });
 }
+
+function localData() {
+  if (localStorage.userResults) {
+    var itemArray = JSON.parse(localStorage.userResults);
+    for (var i = 0; i < itemArray.length; i++) {
+      nameArray.push(itemArray[i].imageName);
+    }
+  }
+  else {
+    itemArray = [];
+    createItem();
+  }
+}
