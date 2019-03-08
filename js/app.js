@@ -26,8 +26,8 @@ var busMall = document.getElementById('images');
 var viewedImage = [];
 var pics = [document.getElementById('left'), document.getElementById('center'), document.getElementById('right')];
 var numberOfClicks = document.getElementById('number-of-clicks');
-var votes = [];
 var views = [];
+var votes = [];
 var totalClicks = 0;
 
 function BusMall(name, ext) {
@@ -120,6 +120,7 @@ displayImages();
 function createChart() {
   for(var i = 0; i < images.length; i++) {
     votes.push(allImages[i].votes);
+    views.push(allImages[i].views);
   }
 
   var imageNumbers = [
@@ -151,7 +152,7 @@ function createChart() {
 
   var ctx = document.getElementById('myChart').getContext('2d');
   ctx.canvas.width = 400;
-  ctx.canvas.height = 350;
+  ctx.canvas.height = 275;
 
   var myChart = new Chart(ctx, {
     type: 'bar',
@@ -162,22 +163,14 @@ function createChart() {
         data: votes,
         borderWidth: 2,
         backgroundColor: imageNumbers,
-        borderColor: 'rgba(6, 167, 125, 1)',
-        pointBackgroundColor: 'rgba(225, 225, 225, 1)',
-        pointBorderColor: 'rgba(6, 167, 125, 1)',
-        pointHoverBackgroundColor: 'rgba(6, 167, 125, 1)',
-        pointHoverBorderColor: '#fff'
       }, {
         label: 'Number of Views',
         data: views,
         borderWidth: 2,
         backgroundColor: imageNumbers,
-        borderColor: 'rgba(6, 167, 125, 1)',
-        pointBackgroundColor: 'rgba(225, 225, 225, 1)',
-        pointBorderColor: 'rgba(6, 167, 125, 1)',
-        pointHoverBackgroundColor: 'rgba(6, 167, 125, 1)',
-        pointHoverBorderColor: '#fff'
+
       }]
+    
     },
     options: {
       legend: {
