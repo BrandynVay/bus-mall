@@ -1,4 +1,7 @@
 'use strict';
+
+
+
 var images = [
   'bag',
   'banana',
@@ -112,6 +115,7 @@ function clicks() {
     numberOfClicks.appendChild(liEl);
   }
   createChart();
+  storeData();
 }
 
 busMall.addEventListener('click', handleClick);
@@ -170,7 +174,7 @@ function createChart() {
         backgroundColor: imageNumbers,
 
       }]
-    
+
     },
     options: {
       legend: {
@@ -189,15 +193,9 @@ function createChart() {
   });
 }
 
-function localData() {
-  if (localStorage.userResults) {
-    var itemArray = JSON.parse(localStorage.userResults);
-    for (var i = 0; i < itemArray.length; i++) {
-      nameArray.push(itemArray[i].imageName);
-    }
-  }
-  else {
-    itemArray = [];
-    createItem();
-  }
+
+function storeData() {
+  localStorage.setItem('Images', JSON.stringify(allImages));
+  var getBack = localStorage.getItem('Images');
+  console.log('getback', JSON.parse(getBack));
 }
