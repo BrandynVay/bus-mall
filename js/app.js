@@ -1,7 +1,6 @@
 'use strict';
 
 
-
 var images = [
   'bag',
   'banana',
@@ -31,6 +30,7 @@ var pics = [document.getElementById('left'), document.getElementById('center'), 
 var numberOfClicks = document.getElementById('number-of-clicks');
 var views = [];
 var votes = [];
+var nameArray = [];
 var totalClicks = 0;
 
 function BusMall(name, ext) {
@@ -198,4 +198,12 @@ function storeData() {
   localStorage.setItem('Images', JSON.stringify(allImages));
   var getBack = localStorage.getItem('Images');
   console.log('getback', JSON.parse(getBack));
+}
+
+
+if (true) {
+  console.log('string');
+  var thun = localStorage.getItem('Images');
+  allImages = JSON.parse(thun);
+  createChart();
 }
