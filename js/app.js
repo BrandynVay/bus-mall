@@ -30,8 +30,8 @@ var pics = [document.getElementById('left'), document.getElementById('center'), 
 var numberOfClicks = document.getElementById('number-of-clicks');
 var views = [];
 var votes = [];
-var nameArray = [];
 var totalClicks = 0;
+pageLoad();
 
 function BusMall(name, ext) {
   this.name = name;
@@ -41,27 +41,6 @@ function BusMall(name, ext) {
   this.views = 0;
   allImages.push(this);
 }
-
-new BusMall('bag', 'jpg');
-new BusMall('banana', 'jpg');
-new BusMall('bathroom', 'jpg');
-new BusMall('boots', 'jpg');
-new BusMall('breakfast', 'jpg');
-new BusMall('bubblegum', 'jpg');
-new BusMall('chair', 'jpg');
-new BusMall('cthulhu', 'jpg');
-new BusMall('dog-duck', 'jpg');
-new BusMall('dragon', 'jpg');
-new BusMall('pen', 'jpg');
-new BusMall('pet-sweep', 'jpg');
-new BusMall('scissors', 'jpg');
-new BusMall('shark', 'jpg');
-new BusMall('sweep', 'jpg');
-new BusMall('tauntaun', 'jpg');
-new BusMall('unicorn', 'jpg');
-new BusMall('water-can', 'jpg');
-new BusMall('wine-glass', 'jpg');
-new BusMall('usb', 'gif');
 
 function randomImage() {
   return Math.floor(Math.random() * images.length);
@@ -200,10 +179,32 @@ function storeData() {
   console.log('getback', JSON.parse(getBack));
 }
 
-
-if (true) {
-  console.log('string');
-  var thun = localStorage.getItem('Images');
-  allImages = JSON.parse(thun);
-  createChart();
+function pageLoad(){
+  if (localStorage.Images) {
+    console.log('string');
+    var thun = localStorage.Images;
+    allImages = JSON.parse(thun);
+    createChart();
+  } else {
+    new BusMall('bag', 'jpg');
+    new BusMall('banana', 'jpg');
+    new BusMall('bathroom', 'jpg');
+    new BusMall('boots', 'jpg');
+    new BusMall('breakfast', 'jpg');
+    new BusMall('bubblegum', 'jpg');
+    new BusMall('chair', 'jpg');
+    new BusMall('cthulhu', 'jpg');
+    new BusMall('dog-duck', 'jpg');
+    new BusMall('dragon', 'jpg');
+    new BusMall('pen', 'jpg');
+    new BusMall('pet-sweep', 'jpg');
+    new BusMall('scissors', 'jpg');
+    new BusMall('shark', 'jpg');
+    new BusMall('sweep', 'jpg');
+    new BusMall('tauntaun', 'jpg');
+    new BusMall('unicorn', 'jpg');
+    new BusMall('water-can', 'jpg');
+    new BusMall('wine-glass', 'jpg');
+    new BusMall('usb', 'gif');
+  }
 }
